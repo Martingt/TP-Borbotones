@@ -1,3 +1,6 @@
+"
+A dice
+"
 Class {
 	#name : #Dice,
 	#superclass : #Object,
@@ -35,5 +38,5 @@ Dice >> numberOfFaces [
 
 { #category : #Actions }
 Dice >> roll [
-	^ (random * numberOfFaces) floor + 1
+	^ (random next * numberOfFaces) floor + 1
 ]
