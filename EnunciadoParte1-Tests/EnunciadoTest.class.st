@@ -8,9 +8,16 @@ Class {
 }
 
 { #category : #tests }
+EnunciadoTest >> testAPlayerCallRobetHasADiceWith4Faces [
+	| player |
+	player := Player call: 'Robert' withADiceWithANumberOfFaces: 4.
+	self assert: player dice numberOfFaces equals: 4
+]
+
+{ #category : #tests }
 EnunciadoTest >> testBoardOf5StepsToWinAnd5Players [
 	| board |
-	board := Board initializeWithStepsToWin: 5 andPlayers: 5.
+	board := Board WithStepsToWin: 5 andPlayers: 5.
 	self assert: board stepsToWin equals: 5.
 	self assert: board players equals: 5
 ]

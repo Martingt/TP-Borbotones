@@ -1,5 +1,5 @@
 "
-A dice
+A dice with a number of faces.
 "
 Class {
 	#name : #Dice,
@@ -11,13 +11,13 @@ Class {
 	#category : #EnunciadoParte1
 }
 
-{ #category : #Creation }
+{ #category : #creation }
 Dice class >> assertValidFaces: aNumberOfFaces [
 	aNumberOfFaces > 3
 		ifFalse: [ self error: 'Number of faces must be 4 or greater' ]
 ]
 
-{ #category : #Creation }
+{ #category : #creation }
 Dice class >> withFaces: aNumberOfFaces [
 	self assertValidFaces: aNumberOfFaces.
 	^ self new
@@ -25,18 +25,18 @@ Dice class >> withFaces: aNumberOfFaces [
 		yourself
 ]
 
-{ #category : #Initialize }
+{ #category : #initialize }
 Dice >> initializeWithFaces: aNumberOfFaces [
 	numberOfFaces := aNumberOfFaces.
 	random := Random new
 ]
 
-{ #category : #Actions }
+{ #category : #actions }
 Dice >> numberOfFaces [
 	^ numberOfFaces
 ]
 
-{ #category : #Actions }
+{ #category : #actions }
 Dice >> roll [
 	^ (random next * numberOfFaces) floor + 1
 ]

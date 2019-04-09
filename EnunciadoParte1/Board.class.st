@@ -1,34 +1,37 @@
+"
+A board of steps to win X Number of players.
+"
 Class {
 	#name : #Board,
 	#superclass : #Object,
 	#instVars : [
-		'stepsToWin'
-	],
-	#classInstVars : [
+		'stepsToWin',
 		'numberOfStepsToWin',
 		'numberOfPLayers'
 	],
 	#category : #EnunciadoParte1
 }
 
-{ #category : #Initialize }
-Board class >> initializeWithStepsToWin: aNumberOfStepsToWin andPlayers: aNumberOfplayers [ 
-	numberOfStepsToWin := aNumberOfStepsToWin.
-	numberOfPLayers := aNumberOfplayers 
-	
+{ #category : #creation }
+Board class >> WithStepsToWin: aNumberOfStepsToWin andPlayers: aNumberOfplayers [
+	^ self new
+		initializeWithStepsToWin: aNumberOfStepsToWin
+			andPlayers: aNumberOfplayers;
+		yourself
 ]
 
-{ #category : #Description }
-Board class >> players [
+{ #category : #initialize }
+Board >> initializeWithStepsToWin: aNumberOfStepsToWin andPlayers: aNumberOfplayers [
+	numberOfStepsToWin := aNumberOfStepsToWin.
+	numberOfPLayers := aNumberOfplayers
+]
+
+{ #category : #description }
+Board >> players [
 	^ numberOfPLayers
 ]
 
-{ #category : #Description }
-Board class >> stepsToWin [
-	^ numberOfStepsToWin
-]
-
-{ #category : #Description }
+{ #category : #description }
 Board >> stepsToWin [
-	^ stepsToWin
+	^ numberOfStepsToWin
 ]
