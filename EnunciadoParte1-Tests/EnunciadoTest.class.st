@@ -42,7 +42,7 @@ EnunciadoTest >> testAPlayerCalledRobertRollsADiceWith4Faces [
 ]
 
 { #category : #tests }
-EnunciadoTest >> testBoardOf5StepsToWinAnd5Players [
+EnunciadoTest >> testBoardHas5StepsAndIsPlayableBy5Players [
 	| board |
 	board := Board WithStepsToWin: 5 andPlayers: 5.
 	self assert: board stepsToWin equals: 5.
