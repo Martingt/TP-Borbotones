@@ -79,3 +79,11 @@ EnunciadoTest >> testIfIGetAFourIMoveFourBlocks [
 	player move: fourFaceDice roll.
 	self assert: player position equals: 4
 ]
+
+{ #category : #tests }
+EnunciadoTest >> testInitialPositionOfRobertIsZero [
+	| player |
+	player := Player call: 'Robert'.
+	self assert: player position equals: 0
+
+]
