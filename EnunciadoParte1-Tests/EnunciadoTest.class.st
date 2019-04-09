@@ -1,7 +1,7 @@
 "
 Enunciado Tests
 "
-Class {
+Class { 
 	#name : #EnunciadoTest,
 	#superclass : #TestCase,
 	#category : #'EnunciadoParte1-Tests-EnunciadoParte1-Tests'
