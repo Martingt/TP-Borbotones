@@ -1,10 +1,30 @@
 "
-Enunciado Tests
+""Aqui se realizan los test""
+Please comment me using the following template inspired by Class Responsibility Collaborator (CRC) design:
+
+For the Class part:  State a one line summary. For example, ""I represent a paragraph of text"".
+
+For the Responsibility part: Three sentences about my main responsibilities - what I do, what I know.
+
+For the Collaborators Part: State my main collaborators and one line about how I interact with them. 
+
+Public API and Key Messages
+
+- message one   
+- message two 
+- (for bonus points) how to create instances.
+
+   One simple example is simply gorgeous.
+ 
+Internal Representation and Key Implementation Points.
+
+
+    Implementation Points
 "
-Class { 
+Class {
 	#name : #EnunciadoTest,
 	#superclass : #TestCase,
-	#category : #'EnunciadoParte1-Tests-EnunciadoParte1-Tests'
+	#category : #'EnunciadoParte1-Tests'
 }
 
 { #category : #tests }
@@ -38,8 +58,17 @@ EnunciadoTest >> testDiceRollsAndReturnsAValidNumber [
 ]
 
 { #category : #tests }
-EnunciadoTest >> testFourFaceDiceHasSixFaces [
-	| sixFaceDice |
-	sixFaceDice := Dice withFaces: 4.
-	self assert: sixFaceDice numberOfFaces equals: 4
+EnunciadoTest >> testFourFaceDiceHasFourFaces [
+	| fourFaceDice |
+	fourFaceDice := Dice withFaces: 4.
+	self assert: fourFaceDice numberOfFaces equals: 4
+]
+
+{ #category : #tests }
+EnunciadoTest >> testIfIGetAFourIMoveFourBlocks [
+	| fourFaceDice player |
+	fourFaceDice := SameFaceDice withFaces: 4.
+	player := Player call: 'Robert' withADiceWithANumberOfFaces: 4.
+	player move: fourFaceDice roll.
+	self assert: player position equals: 4
 ]

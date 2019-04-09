@@ -1,5 +1,5 @@
 "
-""soy un jugador""
+""Dado con caras iguales""
 Please comment me using the following template inspired by Class Responsibility Collaborator (CRC) design:
 
 For the Class part:  State a one line summary. For example, ""I represent a paragraph of text"".
@@ -19,48 +19,43 @@ Public API and Key Messages
 Internal Representation and Key Implementation Points.
 
     Instance Variables
-	dice:		<Object>
-	playerName:		<Object>
+	numberOfFaces:		<Object>
+	random:		<Object>
 
 
     Implementation Points
 "
 Class {
-	#name : #Player,
+	#name : #SameFaceDice,
 	#superclass : #Object,
 	#instVars : [
-		'playerName',
-		'dice',
-		'position'
+		'numberOfFaces',
+		'random'
 	],
 	#category : #EnunciadoParte1
 }
 
-{ #category : #creation }
-Player class >> call: aName withADiceWithANumberOfFaces: aNumberOfFaces [
+{ #category : #create }
+SameFaceDice class >> assertValidFaces: aNumberOfFaces [
+	aNumberOfFaces > 3
+		ifFalse: [ self error: 'Number of faces must be 4 or greater' ]
+]
+
+{ #category : #create }
+SameFaceDice class >> withFaces: aNumberOfFaces [
+	self assertValidFaces: aNumberOfFaces.
 	^ self new
-		initializeWithName: aName
-			andWithADiceWithANumberOfFaces: aNumberOfFaces;
+		initializeWithFaces: aNumberOfFaces;
 		yourself
 ]
 
-{ #category : #actions }
-Player >> dice [
-	^ dice
-]
-
 { #category : #initialize }
-Player >> initializeWithName: aName andWithADiceWithANumberOfFaces: aNumberOfFaces [
-	playerName := aName.
-	dice := Dice withFaces: aNumberOfFaces
+SameFaceDice >> initializeWithFaces: aNumberOfFaces [ 
+	numberOfFaces := aNumberOfFaces .
+	random := Random new
 ]
 
 { #category : #actions }
-Player >> move: aNumberOfSteps [ 
-	 position := aNumberOfSteps 
-]
-
-{ #category : #actions }
-Player >> position [ 
-	^ position
+SameFaceDice >> roll [
+	^ 4
 ]
