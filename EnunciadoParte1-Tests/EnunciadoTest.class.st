@@ -28,7 +28,7 @@ Class {
 }
 
 { #category : #tests }
-EnunciadoTest >> testAPlayerCallRobetHasADiceWith4Faces [
+EnunciadoTest >> testAPlayerCalledRobertHasADiceWith4Faces [
 	| player |
 	player := Player call: 'Robert' withADiceWithANumberOfFaces: 4.
 	self assert: player dice numberOfFaces equals: 4
