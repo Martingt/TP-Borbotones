@@ -27,33 +27,9 @@ Internal Representation and Key Implementation Points.
 "
 Class {
 	#name : #SameFaceDice,
-	#superclass : #Object,
-	#instVars : [
-		'numberOfFaces',
-		'random'
-	],
+	#superclass : #Dice,
 	#category : #EnunciadoParte1
 }
-
-{ #category : #create }
-SameFaceDice class >> assertValidFaces: aNumberOfFaces [
-	aNumberOfFaces > 3
-		ifFalse: [ self error: 'Number of faces must be 4 or greater' ]
-]
-
-{ #category : #create }
-SameFaceDice class >> withFaces: aNumberOfFaces [
-	self assertValidFaces: aNumberOfFaces.
-	^ self new
-		initializeWithFaces: aNumberOfFaces;
-		yourself
-]
-
-{ #category : #initialize }
-SameFaceDice >> initializeWithFaces: aNumberOfFaces [ 
-	numberOfFaces := aNumberOfFaces .
-	random := Random new
-]
 
 { #category : #actions }
 SameFaceDice >> roll [
