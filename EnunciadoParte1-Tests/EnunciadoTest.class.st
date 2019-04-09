@@ -28,10 +28,17 @@ Class {
 }
 
 { #category : #tests }
-EnunciadoTest >> testAPlayerCalledRobertHasADiceWith4Faces [
+EnunciadoTest >> testAPlayerCalledRobert [
 	| player |
-	player := Player call: 'Robert' withADiceWithANumberOfFaces: 4.
-	self assert: player dice numberOfFaces equals: 4
+	player := Player call: 'Robert'.
+	self assert: player name equals: 'Robert'
+]
+
+{ #category : #tests }
+EnunciadoTest >> testAPlayerCalledRobertRollsADiceWith4Faces [
+	| player |
+	player := Player call: 'Robert'.
+	self assert: (player takeADiceWithFacesAndPlays: 4)equals: 2
 ]
 
 { #category : #tests }
@@ -68,7 +75,7 @@ EnunciadoTest >> testFourFaceDiceHasFourFaces [
 EnunciadoTest >> testIfIGetAFourIMoveFourBlocks [
 	| fourFaceDice player |
 	fourFaceDice := SameFaceDice withFaces: 4.
-	player := Player call: 'Robert' withADiceWithANumberOfFaces: 4.
+	player := Player call: 'Robert'.
 	player move: fourFaceDice roll.
 	self assert: player position equals: 4
 ]

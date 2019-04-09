@@ -30,29 +30,22 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'playerName',
-		'dice',
 		'position'
 	],
 	#category : #EnunciadoParte1
 }
 
 { #category : #creation }
-Player class >> call: aName withADiceWithANumberOfFaces: aNumberOfFaces [
+Player class >> call: aName [
 	^ self new
-		initializeWithName: aName
-			andWithADiceWithANumberOfFaces: aNumberOfFaces;
+		initializeWithName: aName;
 		yourself
 ]
 
-{ #category : #actions }
-Player >> dice [
-	^ dice
-]
-
 { #category : #initialize }
-Player >> initializeWithName: aName andWithADiceWithANumberOfFaces: aNumberOfFaces [
+Player >> initializeWithName: aName [
 	playerName := aName.
-	dice := Dice withFaces: aNumberOfFaces
+	position := 0
 ]
 
 { #category : #actions }
@@ -60,7 +53,18 @@ Player >> move: aNumberOfSteps [
 	 position := aNumberOfSteps 
 ]
 
+{ #category : #'as yet unclassified' }
+Player >> name [
+	^ playerName
+]
+
 { #category : #actions }
 Player >> position [ 
 	^ position
+]
+
+{ #category : #actions }
+Player >> takeADiceWithFacesAndPlays: aNumberOfFaces [
+^ 2
+	
 ]
